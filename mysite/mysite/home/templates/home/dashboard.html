@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  {% load staticfiles %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/static/styles.css">
+  <link href='fullcalendar.min.css' rel='stylesheet' />
+<link href='fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='lib/moment.min.js'></script>
+<script src='lib/jquery.min.js'></script>
+<script src='fullcalendar.min.js'></script>
+<script>
+	$(document).ready(function() {
+		document.getElementById("calendar").style.zIndex = "-1";
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; //January is 0!
+		var yyyy = today.getFullYear();
+
+		if(dd<10) {
+		    dd = '0'+dd
+		} 
+		if(mm<10) {
+		    mm = '0'+mm
+		} 
+		today = yyyy + '-' + mm + '-' + dd;
+		
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			defaultDate: today,
+			navLinks: true, // can click day/week names to navigate views
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+		});
+	});
+</script>
+</head>
+<body>
+<br><br>
+  <div id= "header">
+    <div class="logo" style="padding-left:10px"><a style="float:left; font-size: 25px" href="#"><span style="color:#bbb; font-weight: bold">DLS</span><span style="color:#FFF; font-weight: normal">-RRS</span></a>
+    <a href="#" style="float:left; padding-top:20px"><span class="glyphicon glyphicon-question-sign"></span> About</a>
+    <a href="#" style="float:left; padding-top:20px"><span class="glyphicon glyphicon-earphone"></span> Contact Us</a>
+    </div>
+    <a href = "test.html" style ="font-size: 20px"><i class="fa fa-sign-out" ></i>    Logout</a>
+  </div>
+  <div class="container-fluid"><font color = "#FFFFFF">
+  <div class="row content" style="height:100vh">
+    <div class="col-sm-2 sidenav" style="padding:0px; height:110vh">
+      <ul id = "nav">
+        <li><a class="selected" href="#">Home</a></li>
+        <li><a href="roominfo.html">Room Information</a></li>
+        <li><a href="reserve.html">Reserve Room</a></li>
+        <li><a href="suspension.html">Declare Suspension</a></li>
+        <li><a href="changepword.html">Change Password</a></li>
+      </ul>
+      <br>
+    </div>
+
+    <div class="col-sm-7">
+      <div id="box">
+      <div class="box-top">De La Salle Room Reservation System</div>
+      <div class="box-panel">
+      De La Salle Room Reservation System aims to improve room usage quality by maintaining orderliness and strict implementation of room usage policy by automated means.
+      </div>
+      <br>
+      
+      </div>
+    </div>
+    <div class ="col-sm-3">
+    <div id="box">
+      <div class="box-top">Calendar</div>
+      <div class="box-panel">
+    	<div id='calendar' style="z-index: -1"></div>
+      </div>
+    </div>
+    </div>
+    <div class ="col-sm-10">
+      <div class="time">
+        <ul>
+        <li>TIME</li>
+        <li>7:00</li>
+        <li>7:30</li>
+        <li>8:00</li>
+        <li>8:30</li>
+        <li>9:00</li>
+        <li>9:30</li>
+        <li>10:00</li>
+        <li>10:30</li>
+        <li>11:00</li>
+        <li>11:30</li>
+        <li>12:00</li>
+        <li>12:30</li>
+        <li>1:00</li>
+        <li>1:30</li>
+        <li>2:00</li>
+        <li>2:30</li>
+        <li>3:00</li>
+        <li>3:30</li>
+        <li>4:00</li>
+        <li>4:30</li>
+        <li>5:00</li>
+        <li>5:30</li>
+        <ul>
+      </div>
+      <div class="slot">
+        <ul>
+        <li><div class ="roomname"><a>CT</a></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <ul>
+      </div>
+      <div class="slot">
+        <ul>
+        <li><div class ="roomname"><a>IT</a></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <ul>
+      </div>
+      <div class="slot">
+        <ul>
+        <li><div class ="roomname"><a>ST</a></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="available" onclick="available()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <li><div class ="reserved" onclick="reserved()"></div></li>
+        <ul>
+      </div>
+ 
+    </div>
+
+  </font>
+</div>
+	<div id="modalreserved" class="modal">
+
+	    <!-- Modal content -->
+	    <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <center>Reserved By: Gregory Cu</center>
+	    <center>Time: 0:00 - 0:00</center>
+	    <center><button style="width: 15%" type="submit" id="modalbutton">Ok</button></center>
+	    </div>
+
+	</div>
+
+	<div id="modalavail" class="modal">
+
+	    <!-- Modal content -->
+	    <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <center>ROOM AVAILABLE</center>
+	    <center>Time: 0:00 - 0:00</center>
+	    <center>
+	    <button style="width: 15%" type="submit" id="modalreserve">Reserve</button>
+	    <button style="width: 15%" type="submit" id="modalcancel">Cancel</button>
+	    </center>
+	    </div>
+
+	</div>
+
+</body>
+<script>
+    // Get the modal
+    var modalres = document.getElementById('modalreserved');
+
+    var modalavail = document.getElementById('modalavail');
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    var modbtn = document.getElementById('modalbutton');
+    var modres = document.getElementById('modalreserve')
+    var modcan = document.getElementById('modalcancel');
+
+    function reserved() {
+        modalres.style.display = "block";
+    }
+
+    function available() {
+    	modalavail.style.display = "block";
+    }
+
+    modbtn.onclick = function() {
+    	modalres.style.display = "none";
+    }
+
+    modres.onclick = function() {
+    	location.reload();
+    }
+
+    modcan.onclick = function() {
+    	modalavail.style.display = "none";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modalavail.style.display = "none";
+        modalres.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modalres) {
+            modalres.style.display = "none";
+        }
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modalavail) {
+            modalavail.style.display = "none";
+        }
+    }
+
+  </script>
+</html>
